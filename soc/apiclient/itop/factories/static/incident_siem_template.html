@@ -1,0 +1,33 @@
+<section style="font-family:Helvetica;">
+  <br>
+  <br>
+  <b>Our reference: {{ case_name }}</b>
+  <br>
+  <br>
+  <p>
+    Dear,<br><br>
+    In the field of our security monitoring activities, we have identified the following events which may require your attention. We kindly ask you to review this information and revert back to us for follow-up.
+  </p>
+  <br>
+  <b>Detection time of earliest security event</b><br>
+  {{ time }}
+  <br><br>
+  <b>Username</b><br>
+  {{ username }}
+  <br><br>
+  <b>Source Address</b><br>
+  {{ source_ip }}
+  <br><br>
+  <b>Destination Address</b><br>
+  {{ dest_ip }}
+  <br><br>
+  <b>Signatures</b>
+  <ul>
+    {% set signatures_list = signatures.split(',') %}
+    {% for sig in signatures_list %}
+    <li>{{ sig }}</li>
+    {% endfor %}
+  </ul>
+  <b>Analysis</b><br>
+  {{ comment }}
+</section>
